@@ -11,11 +11,11 @@ import trl
 
 @dataclass
 class TrainingConfig:
-    model_name: str = field(default="Qwen/Qwen2.5-32B-Instruct")
+    model_name: str = field(default="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B")
     block_size: int = field(default=32768)
     wandb_project: Optional[str] = field(default="s1")
-    wandb_entity: Optional[str] = field(default="hashimoto-group")
-    train_file_path: Optional[str] = field(default='simplescaling/s1K_tokenized')
+    wandb_entity: Optional[str] = field(default="chrisvnz-bimwerx")
+    train_file_path: Optional[str] = field(default='simplescaling/s1K-1.1_tokenized')
     dagger: bool = field(default=False)
 
     def __post_init__(self):
