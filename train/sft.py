@@ -1,4 +1,7 @@
 import os
+os.environ["WANDB_DISABLED"] = "true"
+os.environ["WANDB_MODE"] = "disabled"
+os.environ["WANDB_PROJECT"] = "offline"
 from dataclasses import dataclass, field, asdict
 from typing import Optional
 import warnings
@@ -53,13 +56,15 @@ def train():
     )
     args.dataset_text_field = 'text'
     args.max_seq_length = config.block_size
-    args.report_to = None
+    args.report_to = ["none"]
+
     trainer = trl.SFTTrainer(
         model,
         train_dataset=dataset['train'],
         eval_dataset=dataset['test'] if 'test' in dataset else dataset['train'],
         args=args,
-        data_collator=collator
+        data_collator=collator,
+        report_to=["none"]  # Force disable wandb
     )
 
     trainer.train()
