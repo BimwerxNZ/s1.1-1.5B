@@ -209,7 +209,7 @@ To train s1-32B/s1.1-32B, we recommend 16 H100 GPUs i.e. 2 nodes with 8 each. Fo
 
 Quick start:
 ```
-git clone https://github.com/simplescaling/s1.git
+git clone [https://github.com/simplescaling/s1.git](https://github.com/BimwerxNZ/s1.1-1.5B.git)
 cd s1
 pip3 install -r requirements.txt
 bash train/sft.sh
