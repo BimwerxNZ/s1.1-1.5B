@@ -63,8 +63,7 @@ def train():
         train_dataset=dataset['train'],
         eval_dataset=dataset['test'] if 'test' in dataset else dataset['train'],
         args=args,
-        data_collator=collator,
-        report_to=["none"]  # Force disable wandb
+        data_collator=collator
     )
 
     trainer.train()
