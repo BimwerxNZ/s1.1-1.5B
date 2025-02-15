@@ -1,7 +1,7 @@
 # Reference Running: bash train/sft.sh
 # {'train_runtime': 5268.8407, 'train_samples_per_second': 0.949, 'train_steps_per_second': 0.119, 'train_loss': 0.1172730620391667, 'epoch': 5.0}
 uid="$(date +%Y%m%d_%H%M%S)"
-base_model="Qwen/Qwen2.5-32B-Instruct"
+base_model="deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B"
 lr=1e-5
 min_lr=0
 epochs=5
@@ -19,7 +19,7 @@ torchrun --nproc-per-node ${gpu_count} --master_port 12345 \
     --per_device_eval_batch_size=${micro_batch_size} \
     --gradient_accumulation_steps=${gradient_accumulation_steps} \
     --num_train_epochs=${epochs} \
-    --train_file_path="simplescaling/s1K_tokenized" \
+    --train_file_path="simplescaling/s1K-1.1_tokenized" \
     --model_name=${base_model} \
     --warmup_ratio=0.05 \
     --fsdp="full_shard auto_wrap" \
