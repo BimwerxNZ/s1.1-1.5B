@@ -53,6 +53,7 @@ def train():
     )
     args.dataset_text_field = 'text'
     args.max_seq_length = config.block_size
+    args.report_to = None
     trainer = trl.SFTTrainer(
         model,
         train_dataset=dataset['train'],
