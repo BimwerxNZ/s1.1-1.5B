@@ -48,7 +48,6 @@ This repository provides an overview of all resources for the paper ["s1: Simple
 
 ### Inference
 
-Install the `vllm` library and run:
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
