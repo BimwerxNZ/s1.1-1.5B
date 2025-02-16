@@ -22,7 +22,7 @@ model.save_pretrained(merged_model_path)
 tokenizer.save_pretrained(merged_model_path)
 
 # ✅ Step 4: Locate `convert_hf_to_gguf.py` Script
-gguf_script = os.path.join("llama.cpp", "convert_hf_to_gguf.py")
+gguf_script = os.path.join("llama_cpp", "convert_hf_to_gguf.py")
 
 if not os.path.exists(gguf_script):
     print("❌ ERROR: `convert_hf_to_gguf.py` not found! Download it manually.")
