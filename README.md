@@ -153,7 +153,7 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
 To run training, you can find our script at `train/sft.py` which you can invoke directly.
 
-To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 9 hours). Check the wandb logs [here](https://wandb.ai/chrisvnz-bimwerx/s1/runs/rc752fxv?nw=nwuserchrisvnz).
+To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 7.5 hours). Check the wandb logs [here](https://wandb.ai/chrisvnz-bimwerx/s1/runs/rc752fxv?nw=nwuserchrisvnz).
 
 Quick start (I used Conda environment and container):
 ```
