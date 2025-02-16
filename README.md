@@ -153,7 +153,7 @@ response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
 To run training, you can find our script at `train/sft.py` which you can invoke directly.
 
-To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 9 hours). For s1.1, we set the block size to 20000 to avoid OOM (https://github.com/simplescaling/s1/blob/0ad4b3de32507b4aa0d4be28f336276ee99b2315/train/sft.sh#L17); Check the wandb logs [here](https://wandb.ai/hashimoto-group/o1/runs/m1ilia77/overview).
+To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 9 hours). For s1.1, we set the block size to 20000 to avoid OOM (https://github.com/simplescaling/s1/blob/0ad4b3de32507b4aa0d4be28f336276ee99b2315/train/sft.sh#L17); Check the wandb logs [here](https://wandb.ai/chrisvnz-bimwerx/s1/runs/rc752fxv?nw=nwuserchrisvnz).
 
 Quick start:
 ```
