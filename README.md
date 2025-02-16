@@ -157,6 +157,8 @@ To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 9 hours). Check 
 
 Quick start (I used Conda environment and container):
 ```
+conda create -n llm-training python=3.10 -y
+conda activate llm-training
 git clone https://github.com/BimwerxNZ/s1.1-1.5B.git
 cd s1.1-1.5B
 pip install -r requirements.txt
