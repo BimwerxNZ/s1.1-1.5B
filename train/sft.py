@@ -54,6 +54,9 @@ def train():
     log_config = {**asdict(config), **vars(args)}
     logging.info(f"Training config: {log_config}")
 
+    # **Set max_seq_length in args** (this will be picked up by SFTTrainer)
+    args.max_seq_length = config.block_size
+
     # Load model
     model = transformers.AutoModelForCausalLM.from_pretrained(config.model_name)
 
@@ -62,6 +65,7 @@ def train():
 
     # Load tokenizer
     tokenizer = transformers.AutoTokenizer.from_pretrained(config.model_name, use_fast=True)
+    tokenizer.padding_side = "right"  # Fix for BF16 training
 
     # Define tokenization strategy based on model type
     if "Llama" in config.model_name:
@@ -81,7 +85,7 @@ def train():
         mlm=False
     )
 
-    # Setup training arguments
+    # Setup training arguments (removed max_seq_length from here)
     training_args = transformers.TrainingArguments(
         per_device_train_batch_size=args.batch_size,
         per_device_eval_batch_size=args.batch_size,
@@ -101,13 +105,15 @@ def train():
         gradient_checkpointing=True
     )
 
-    # Define trainer
+    # Define trainer, explicitly passing the tokenizer
     trainer = trl.SFTTrainer(
         model=model,
         train_dataset=dataset["train"],
         eval_dataset=dataset["test"] if "test" in dataset else dataset["train"],
         args=training_args,
-        data_collator=collator
+        data_collator=collator,
+        tokenizer=tokenizer,
+        max_seq_length=config.block_size
     )
 
     # Start training
@@ -121,3 +127,4 @@ def train():
 
 if __name__ == "__main__":
     train()
+
