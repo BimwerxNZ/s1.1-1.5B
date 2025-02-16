@@ -155,12 +155,12 @@ To run training, you can find our script at `train/sft.py` which you can invoke 
 
 To train s1.1-1.5B, I used 1x RTX4070 SUPER with 12GB vRAM (+/- 9 hours). Check the wandb logs [here](https://wandb.ai/chrisvnz-bimwerx/s1/runs/rc752fxv?nw=nwuserchrisvnz).
 
-Quick start:
+Quick start (I used Conda environment and container):
 ```
 git clone https://github.com/BimwerxNZ/s1.1-1.5B.git
 cd s1.1-1.5B
-pip3 install -r requirements.txt
-bash train/sft.sh
+pip install -r requirements.txt
+python train/sft.py
 ```
 *Note: If you encounter an out-of-memory (OOM) issue with 8 GPUs, consider enabling gradient checkpointing by adding the following line to your script: `--gradient_checkpointing=True`.*
 
