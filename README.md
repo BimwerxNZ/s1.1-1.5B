@@ -21,8 +21,6 @@ This repository provides an overview of all resources for the paper ["s1: Simple
 - [Artifacts](#artifacts)
 - [Structure](#structure)
 - [Inference](#inference)
-  - [vLLM](#vllm)
-  - [vLLM with budget forcing](#vllm-with-budget-forcing)
   - [transformers](#transformers)
 - [Training](#training)
 - [Evaluation](#evaluation)
