@@ -1,5 +1,7 @@
 --index-url https://download.pytorch.org/whl/cu121
 
+--index-url https://github.com/ggml-org/llama.cpp.git
+
 openai==1.56.1
 torch==2.5.1
 torchaudio==2.5.1
